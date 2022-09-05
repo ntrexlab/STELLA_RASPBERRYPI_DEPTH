@@ -1,0 +1,21 @@
+<launch>
+
+<!-- navigation common params-->
+<rosparam file="$(find stella_3d_navigation)/param_common/local_costmap_params.yaml"      command="load" ns="move_base"/>
+<rosparam file="$(find stella_3d_navigation)/param_common/global_costmap_params.yaml"     command="load" ns="move_base"/>
+<rosparam file="$(find stella_3d_navigation)/param_common/move_base_params.yaml"          command="load" ns="move_base"/>
+<rosparam file="$(find stella_3d_navigation)/param_common/base_global_planner_param.yaml" command="load" ns="move_base"/>
+
+<param name="move_base/base_local_planner"    type="string" value="teb_local_planner/TebLocalPlannerROS"/>
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <remap from="map" to="/rtabmap/grid_map"/>
+    <rosparam file="$(find stella_3d_navigation)/costmap_common_params/costmap_common_params_pure3d.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find stella_3d_navigation)/costmap_common_params/costmap_common_params_pure3d.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find stella_3d_navigation)/costmap_common_params/teb_local_planner_params.yaml"  command="load"/>
+  </node>
+
+    
+</launch>
+
+

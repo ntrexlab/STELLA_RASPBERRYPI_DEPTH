@@ -1,0 +1,4 @@
+<launch>
+  <include file='$(find stella_follower)/launch/nodes/visualTracker.launch' />
+  <include file='$(find stella_follower)/launch/nodes/visualfollow.launch' />
+</launch>

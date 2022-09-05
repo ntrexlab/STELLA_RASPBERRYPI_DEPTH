@@ -1,0 +1,9 @@
+<launch>
+  <node name='follower' pkg="stella_follower" type="laser_follow.py">
+    <!-- maximal speed (angular and linear both), target distance: the robot will try to keep this fixed distance -->
+    <param name='maxSpeed' value='0.6' type='double' />
+    <param name='targetDist' value='1.0' type='double' />
+    <rosparam ns='PID_controller' command='load' file='$(find stella_follower)/parameters/PID_laser_param.yaml' />
+  </node>
+</launch>
+
