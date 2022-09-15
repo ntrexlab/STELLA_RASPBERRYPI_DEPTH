@@ -78,8 +78,6 @@
 
   </group>
 
-  <node pkg="tf" type="static_transform_publisher" name="odom_to_map" args="0 0 0 0 0 0  map odom 100" />
-
   <node name='send_mark' pkg="stella_3d_navigation" type="send_mark.py">
   </node>
 
